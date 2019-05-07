@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "lexemeID": {
+            "required": true,
+            "type": "string"
+        },
+        "ifMatch": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

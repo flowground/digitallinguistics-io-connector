@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "lexemeID": {
+            "required": true,
+            "type": "string"
+        },
+        "deleted": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "ifNoneMatch": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

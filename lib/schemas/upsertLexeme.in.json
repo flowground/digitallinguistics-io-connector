@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "ifMatch": {
+            "required": false,
+            "type": "string"
+        },
+        "languageID": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

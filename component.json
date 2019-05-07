@@ -1,0 +1,334 @@
+{
+    "title": "DLx",
+    "description": "The Digital Linguistics (DLx) REST API",
+    "docsUrl": "http://developer.digitallinguistics.io/api/",
+    "url": "https://api.apis.guru/v2/specs/digitallinguistics.io/0.3.1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.digitallinguistics.io/v0",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Authorization": {
+                "label": "Authorization (Authorization)",
+                "viewClass": "TextFieldView",
+                "note": "An access token (JSON Web Token) included in the `Authorization` header in the format `Bearer {token}`. Tokens may be retrieved programmatically from https://digitallinguistics.auth0.com. See the authorization documentation at http://developer.digitallinguistics.io/api/."
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getLanguages": {
+            "main": "./lib/actions/getLanguages.js",
+            "title": "Get all Languages",
+            "description": "Retrieves all the Languages that the authenticated user or client has permission to access.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLanguages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "addLanguage": {
+            "main": "./lib/actions/addLanguage.js",
+            "title": "Add a new Language",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/addLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "upsertLanguage": {
+            "main": "./lib/actions/upsertLanguage.js",
+            "title": "Upsert (create or replace) a Language",
+            "description": "Creates a Language if it does not yet exist (i.e. if the resource does not have an `id` property yet), or replaces the existing Language resource if it does. Note that this replaces the *entire* Language. It is not a partial update.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/upsertLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteLanguage": {
+            "main": "./lib/actions/deleteLanguage.js",
+            "title": "Delete a Language by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLanguage": {
+            "main": "./lib/actions/getLanguage.js",
+            "title": "Retrieve a Language by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateLanguage": {
+            "main": "./lib/actions/updateLanguage.js",
+            "title": "Perform a partial update on a Language",
+            "description": "Performs a partial update the Language whose ID is specified in the URL. If the Language object has an `id` property, is ignored in favor of the ID in the URL.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLexemesByLanguage": {
+            "main": "./lib/actions/getLexemesByLanguage.js",
+            "title": "Get all Lexemes for a Language",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLexemesByLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "addLexemeByLanguage": {
+            "main": "./lib/actions/addLexemeByLanguage.js",
+            "title": "Add a new Lexeme to a Language",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/addLexemeByLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "upsertLexemeByLanguage": {
+            "main": "./lib/actions/upsertLexemeByLanguage.js",
+            "title": "Upsert (add or replace) a Lexeme",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/upsertLexemeByLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteLexemeByLanguage": {
+            "main": "./lib/actions/deleteLexemeByLanguage.js",
+            "title": "Delete a Lexeme by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteLexemeByLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLexemeByLanguage": {
+            "main": "./lib/actions/getLexemeByLanguage.js",
+            "title": "Get a Lexeme by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLexemeByLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateLexemeByLanguage": {
+            "main": "./lib/actions/updateLexemeByLanguage.js",
+            "title": "Perform a partial update on a Lexeme",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateLexemeByLanguage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLexemes": {
+            "main": "./lib/actions/getLexemes.js",
+            "title": "Get all Lexemes",
+            "description": "Retrieve all Lexemes that the authenticated user has permission to access. Include a `languageID` query parameter to limit results to Lexemes from a particular Language.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLexemes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "addLexeme": {
+            "main": "./lib/actions/addLexeme.js",
+            "title": "Add a new Lexeme",
+            "description": "Add a new Lexeme. A `languageID` must be provided either as a query parameter, or as an attribute on the Lexeme body.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/addLexeme.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "upsertLexeme": {
+            "main": "./lib/actions/upsertLexeme.js",
+            "title": "Upsert (add or replace) a Lexeme",
+            "description": "Upsert (add or replace) a Lexeme. A `languageID` must be provided either as a query parameter, or as an attribute on the Lexeme body.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/upsertLexeme.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteLexeme": {
+            "main": "./lib/actions/deleteLexeme.js",
+            "title": "Delete a Lexeme by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteLexeme.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLexeme": {
+            "main": "./lib/actions/getLexeme.js",
+            "title": "Get a Lexeme by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLexeme.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateLexeme": {
+            "main": "./lib/actions/updateLexeme.js",
+            "title": "Perform a partial update on a Lexeme",
+            "description": "Perform a partial update on a Lexeme.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateLexeme.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

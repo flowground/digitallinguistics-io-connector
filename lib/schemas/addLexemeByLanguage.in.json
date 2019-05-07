@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "languageID": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

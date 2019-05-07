@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "languageID": {
+            "required": true,
+            "type": "string"
+        },
+        "lexemeID": {
+            "required": true,
+            "type": "string"
+        },
+        "deleted": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "ifNoneMatch": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "continuation": {
+            "required": false,
+            "type": "string"
+        },
+        "deleted": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "ifModifiedSince": {
+            "required": false,
+            "type": "string"
+        },
+        "maxItemCount": {
+            "required": false,
+            "type": "string"
+        },
+        "public": {
+            "required": false,
+            "type": "string",
+            "default": "false"
+        }
+    }
+}
